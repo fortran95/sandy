@@ -13,6 +13,7 @@ parser = argparse.ArgumentParser(description="""Sandy controller, a tool
             for publish/comment/repeat... all microblog entries."""
          )
 parser.add_argument('action',
+                    choices=['publish','comment','repeat'],
                     action='store',
                     help="""<publish|comment|repeat>, describing your intent.
 
@@ -46,6 +47,14 @@ parser.add_argument('-a','--append',action='store_true',dest='append',
                     referenced entry. The comment will be sent back to the
                     referenced user then.
                     """)
+parser.add_argument('-e','--encoding',
+                    action='store',
+                    dest='encoding',
+                    choices=['base64','hex'],
+                    help="""
+                    Use this if your CONTENT supplied with -c/--content is
+                    encoded with Base64 or HEX.
+                    """)
 
 def parse(argv,stdout='/dev/stdout',stderr='/dev/stderr'):
     so = file(stdout, 'a+')
@@ -53,8 +62,15 @@ def parse(argv,stdout='/dev/stdout',stderr='/dev/stderr'):
     os.dup2(so.fileno(), sys.stdout.fileno())
     os.dup2(se.fileno(), sys.stderr.fileno())
 
-    parser.parse(argv.split(" "))
+    args = parser.parse_args(argv.split(" "))
 
+    action = args.action.lower().strip()
+    if 'publish' == action:
+        pass
+    elif 'comment' == action:
+        pass
+    elif 'repeat' == action:
+        pass
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
