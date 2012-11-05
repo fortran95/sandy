@@ -1,7 +1,5 @@
 <?
-$REALPATH = dirname(__FILE__);
-include("$REALPATH/lib/smarty.php");
-include("$REALPATH/lib/authenticate.php");
+include (dirname(__FILE__) . "/config.php");
 
 $render = new Render();
 
