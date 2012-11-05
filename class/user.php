@@ -3,15 +3,16 @@ class User{
     public function __construct($userid,
                                 $username,
                                 $rawpass){
+        global $database;
+        $this->db = $database;
+
         $this->userid = $userid;
         $this->username = $username;
 
         $this->jabber = $this->getJabberAccounts();
     }
-    public function getUsername(){
-        return $this->username;
-    }
     private function getJabberAccounts(){
+        # TODO decrypt & load Jabber Accounts for this user.
     }
 }
 ?>

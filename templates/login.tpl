@@ -14,13 +14,13 @@
 {elseif isset($error)}
 登录错误，请检查用户名和密码。
 {else}
-您的身份和密码将用于系统运行所需的一系列信息的解密。
+您的密码将用于系统运行所需的一系列信息的解密。您必须启用Cookies才能登录。
 {/if}
 </div>
 <form class="box login" method="post" action="account.php">
         <input type="hidden" name="action" value="login">
 	<fieldset class="boxBody">
-	  <label><a href="#" class="rLink" tabindex="1">注册新用户</a>用户名</label>
+	  <label><a href="account.php?show=reg" class="rLink" tabindex="1">注册新用户</a>用户名</label>
 	  <input type="text" name="username" tabindex="2" placeholder="在此输入您的用户名" required>
 	  <label>密码</label>
 	  <input type="password" name="password" tabindex="3" required>
