@@ -9,18 +9,25 @@
 
 <body>
 <div class="box info">
+{if isset($success)}
+<strong>{$success}</strong> 已经登录成功。
+{elseif isset($error)}
+登录错误，请检查用户名和密码。
+{else}
 您的身份和密码将用于系统运行所需的一系列信息的解密。
+{/if}
 </div>
-<form class="box login">
+<form class="box login" method="post" action="account.php">
+        <input type="hidden" name="action" value="login">
 	<fieldset class="boxBody">
-	  <label>用户名</label>
-	  <input type="text" tabindex="1" placeholder="在此输入您的用户名" required>
-	  <label><a href="#" class="rLink" tabindex="5">忘记密码了？</a>密码</label>
-	  <input type="password" tabindex="2" required>
+	  <label><a href="#" class="rLink" tabindex="1">注册新用户</a>用户名</label>
+	  <input type="text" name="username" tabindex="2" placeholder="在此输入您的用户名" required>
+	  <label>密码</label>
+	  <input type="password" name="password" tabindex="3" required>
 	</fieldset>
 	<footer>
-	  <label><input type="checkbox" tabindex="3">保持登录状态</label>
-	  <input type="submit" class="btnLogin" value="登录" tabindex="4">
+	  <label><input type="checkbox" tabindex="4">保持登录状态</label>
+	  <input type="submit" class="btnLogin" value="登录" tabindex="5">
 	</footer>
 </form>
 </body>

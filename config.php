@@ -5,8 +5,24 @@
  *  This also includes all necessary libraries in reasonable ways.
  *  Other pages may include this file only and get everything done.
  */
-/********************   BELOW CAN BE MODIFIED MANUALLY  *********************/
-# Database Configuration
+/******************************************************************************/
+/*
+ * Security configuration
+ *
+ * Make below unique. Long and random please.
+ */
+$_unique_key = 'l3Ih6Tf0Fs9Or8Uv0Dn8Hb4Is4Py8Qi2Vi7Jk7Ng7Pk8Bk3Fk3Wi3Rm4It2n';
+
+
+/*
+ * Database configuration
+ *
+ * This instructs how our system connects to the database.
+ * > For MySQL connection, use:
+ *      'type'=>'mysql',
+ *   And supply 'server', 'user', 'password', 'dbname' respectively as
+ *   database server, user name, password, and the database Sandy should use.
+ */
 $_database_credentials = array(
     'type'      =>'mysql',
     'server'    =>'localhost',
@@ -14,37 +30,4 @@ $_database_credentials = array(
     'password'  =>'test',
     'dbname'    =>'sandy',
 );
-
-/* xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx   */
-/* DO NOT modify anything below, ONLY when you are sure of its consequences! */
-/* xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx xxx   */
-
-$basepath = dirname(__FILE__);
-include("$basepath/class/database.php");
-
-switch($_database_credentials['type']){
-    case 'mysql':
-        $database = new MySQL($_database_credentials['server'],
-                              $_database_credentials['user'],
-                              $_database_credentials['password'],
-                              $_database_credentials['dbname']);
-        break;
-}
-
-include("$basepath/lib/security.php");
-
-include("$basepath/class/user.php");
-include("$basepath/class/usermanager.php");
-
-include("$basepath/lib/smarty.php");
-include("$basepath/lib/authenticate.php");
-
-session_start();
-
-if(session_id() != ''){
-    # TODO validate given sessionID + IP + BrowserType + ..., if pass, start session, or destroy.
-} else {
-    session_start();
-    # TODO record validating info
-}
 ?>

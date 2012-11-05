@@ -8,6 +8,9 @@ class User{
 
         $this->jabber = $this->getJabberAccounts();
     }
+    public function getUsername(){
+        return $this->username;
+    }
     private function getJabberAccounts(){
     }
 }
