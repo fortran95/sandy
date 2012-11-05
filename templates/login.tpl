@@ -9,7 +9,7 @@
 
 <body>
 <div class="box info">
-descriptions
+您的身份和密码将用于系统运行所需的一系列信息的解密。
 </div>
 <form class="box login">
 	<fieldset class="boxBody">
