@@ -5,12 +5,14 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet" type="text/css" href="static/css/reset.css">
 <link rel="stylesheet" type="text/css" href="static/css/structure.css">
+<script src="static/js/common.js"></script>
 </head>
 
 <body>
 <div class="box info">
 {if isset($success)}
-<strong>{$success}</strong> 已经登录成功。
+<strong>{$success}</strong> 已经登录成功。<a href="index.php">如果页面没有自动跳转，请点击这里。</a>
+<script>redirect(2000,'index.php');</script>
 {elseif isset($error)}
 登录错误，请检查用户名和密码。
 {else}

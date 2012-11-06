@@ -5,7 +5,7 @@ body{
 {
     background:#fefefe;
     border: 1px solid #C3D4DB;
-	border-top:1px;
+    border-top:1px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
@@ -15,7 +15,15 @@ body{
     color:#444;
     font:normal 12px/14px Arial, Helvetica, Sans-serif;
     margin:0 auto 30px;
-	overflow:hidden;
+    overflow:hidden;
+}
+.box.entry
+{
+    width: 60%;
+    position: relative;
+    left: 10%;
+    margin: 10px 0 0 0;
+    padding: 10px 20px;
 }
 .box.info
 {

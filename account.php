@@ -1,6 +1,5 @@
 <?
 include (dirname(__FILE__) . "/initialize.php");
-
 $show = isset($_GET['show'])?$_GET['show']:'';
 $show = strtolower(trim($show));
 $action = isset($_POST['action'])?$_POST['action']:'';
