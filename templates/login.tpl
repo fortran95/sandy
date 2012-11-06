@@ -14,10 +14,10 @@
 <strong>{$success}</strong> 已经登录成功。
 <p><a href="index.php">如果页面没有自动跳转，请点击这里。</a>
 </div>
-<script>redirect(2000,'index.php');</script>
+<script>redirect(1000,'index.php');</script>
 {elseif isset($error)}
 <div class="box loginmessage">登录错误，请检查用户名和密码。</div>
-<script>redirect(2000,'account.php');</script>
+<script>redirect(1000,'account.php');</script>
 {else}
 <form class="box login" method="post" action="account.php">
         <input type="hidden" name="action" value="login">
@@ -28,7 +28,6 @@
 	  <input type="password" name="password" tabindex="3" required>
 	</fieldset>
 	<footer>
-	  <label><input type="checkbox" tabindex="4">保持登录状态</label>
 	  <input type="submit" class="btnLogin" value="登录" tabindex="5">
 	</footer>
 </form>

@@ -9,6 +9,8 @@
 <body>
 <div class="box info">
 <strong>{$user.name}</strong>
+|
+<a href="account.php">退出</a>
 </div>
 
 

@@ -28,9 +28,11 @@ class UserManager{
          *  Return false if anything wrong.
          *  Return true if user did inserted.
          */
+        if(!$this->validateUsername($username))
+            return -1;
         $username = $this->encodeUsername($username);
         if(false !== $this->userExists($username))
-            return false;
+            return -2;
         $hmackey = getRandomString(64);
         $hashed = hash_hmac('sha1',$password,$hmackey);
         $sql = "INSERT INTO users(username,
@@ -43,7 +45,12 @@ class UserManager{
         $err = $this->db->lastError();
         return ($err == '');
     }
-
+    public function validateUsername($username){
+        $username = trim($username);
+        $ulen = strlen($username);
+        if($ulen > 20 or $ulen < 4) return false;
+        return true;
+    }
     private function userExists($username){
         $userq = $this->db->querySQL("SELECT * FROM users
                                       WHERE username='$username'");
@@ -51,7 +58,7 @@ class UserManager{
             return false;
         return $userq[0];
     }
-    private function encodeUsername($username){
+    private function encodeUsername($username){  
         return base64_encode(
                 strtolower(
                     trim($username)
